@@ -1,16 +1,16 @@
 {
-  "name": "@nc/progux",
-  "version": "1.0.1",
+  "name": "@netcentric/progux",
+  "version": "0.0.0-development",
   "description": "Progressive user experience library",
   "license": "MIT",
-  "main": "dist/prod/bundle.js",
-  "publishConfig": {
-    "registry": "http://repo-npm.int.netcentric.biz/repository/npm-nc/"
-  },
   "repository": {
     "type": "git",
-    "url": "ssh://git@source.int.netcentric.biz:7999/npm-nc/progux.git"
+    "url": "ssh://git@github.com:Netcentric/progux.git"
   },
+  "main": "dist/progux.cjs.js",
+  "module": "dist/progux.esm-bundler.js",
+  "browser": "dist/progux.esm.js",
+  "unpkg": "dist/progux.global.js",
   "contributors": [
     {
       "name": "Scott Francis",
@@ -23,6 +23,10 @@
     {
       "name": "Ines Akrap",
       "email": "akrap.ines@gmail.com"
+    },
+    {
+      "name": "Alvaro Saburido",
+      "email": "alvaro.saburido@gmail.com"
     }
   ],
   "scripts": {
@@ -30,13 +34,15 @@
     "watch-js-css": "watch 'npm run build-js-css' src/frontend/js src/frontend/css",
     "watch-html": "watch 'npm run copy-html' src/frontend/html",
     "copy-html": "copyfiles -f src/frontend/html/*.html dist",
-    "build-js-css": "rollup --config rollup-config.js",
+    "build": "rollup --config rollup.config.js",
     "webserver": "ws --static.index dist/index.html",
     "webserver-dev": "ws --static.index dist/index-dev.html",
     "start": "npm run webserver | npm run watch",
-    "start-dev": "npm run webserver-dev | npm run watch"
+    "start-dev": "npm run webserver-dev | npm run watch",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
+    "chalk": "^4.1.0",
     "copyfiles": "2.3.0",
     "eslint": "^7.20.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -45,6 +51,7 @@
     "rollup": "2.26.11",
     "rollup-plugin-scss": "2.6.1",
     "rollup-plugin-terser": "7.0.2",
+    "semantic-release": "17.2.4",
     "watch": "1.0.2"
   },
   "keywords": [
