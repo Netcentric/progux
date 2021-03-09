@@ -5,12 +5,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:Netcentric/progux.git"
+    "url": "https://github.com:Netcentric/progux.git"
   },
-  "main": "dist/progux.cjs.js",
-  "module": "dist/progux.esm-bundler.js",
-  "browser": "dist/progux.esm.js",
-  "unpkg": "dist/progux.global.js",
+  "main": "dist/prod/bundle.js",
   "contributors": [
     {
       "name": "Scott Francis",
