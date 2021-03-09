@@ -2,7 +2,7 @@
 
 ![ProgUX logo](assets/Logo_ProgUX.png "")
 
-# @nc/ProgUX 1.0.1
+# @netcentric/ProgUX
 
 Progressive User Experience Library (ProgUX) is designed to help developers make decisions on the end experience they deliver to the end users.
 
