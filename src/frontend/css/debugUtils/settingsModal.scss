@@ -1,0 +1,275 @@
+@import "settingsModal.config";
+
+.settingsModal {
+    $root: &;
+
+    display: inline-block;
+    position: absolute;
+    z-index: 10;
+    font-family: Arial, sans-serif;
+
+    &[draggable="true"] {
+        cursor: move;
+    }
+
+    &--open {
+        background-color: $sm-backgroundColor;
+        color: $sm-primaryFontColor;
+        box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+
+        #{$root}__openIcon {
+            display: none;
+        }
+    }
+
+    &--closed {
+
+        #{$root}__title,
+        #{$root}__closeIcon,
+        #{$root}__form,
+        #{$root}__controller--view {
+            display: none;
+        }
+
+    }
+
+    &--banner {
+        display: flex;
+
+        #{$root}__header,
+        #{$root}__submit {
+            display: none;
+        }
+
+        #{$root}__controller--view #{$root}__parameter {
+            font-size: 12px;
+        }
+    }
+
+    &__header {
+        background-color: $sm-highlightColor;
+        color: $sm-secondaryFontColor;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 36px;
+        padding: 5px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        #{$root}--closed & {
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+        }
+    }
+
+    &__icon {
+        fill: $sm-iconColor;
+    }
+
+    &__closeIcon,
+    &__openIcon {
+        cursor: pointer;
+    }
+
+    &__closeIcon {
+        margin-right: -3px;
+        margin-top: 6px;
+    }
+
+    &__openIcon {
+        height: 24px;
+        width: 24px;
+    }
+
+    &__form {
+        font-size: 14px;
+        padding: 10px 20px;
+
+        #{$root}--banner & {
+            display: flex;
+            background-color: $sm-highlightColor;
+            color: $sm-backgroundColor;
+            margin-bottom: 0;
+        }
+    }
+
+    &__controller {
+        display: flex;
+
+        #{$root}--banner & {
+            margin: 0 10px 0 0;
+            border-right: 1px solid $sm-backgroundColor;
+        }
+
+        &:last-of-type {
+
+            #{$root}--banner & {
+                border-right: none;
+            }
+        }
+
+        &--options {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin: 0 0 20px;
+        }
+
+        &--toggle {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0 10px;
+
+            #{$root}--banner & {
+                flex-direction: column;
+                align-items: start;
+                justify-content: start;
+            }
+        }
+
+        &--view {
+            padding: 20px;
+            margin: 0;
+            font-size: 14px;
+            border-top: 1px solid $sm-optionsBorderColor;
+
+            #{$root}--banner & {
+                border-top: none;
+                padding: 10px;
+                margin: 0;
+                width: 80px;
+                text-align: center;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+        }
+    }
+
+    &__parameter {
+        text-transform: uppercase;
+        font-weight: bold;
+
+        #{$root}--banner & {
+            line-height: 18px;
+        }
+    }
+
+    &__parameterValue {
+        display: none;
+
+        #{$root}--banner & {
+            display: inline-block;
+        }
+    }
+
+    &__parameterInput {
+
+        #{$root}--banner & {
+            display: none;
+        }
+    }
+
+    &__options {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        border: 1px solid $sm-optionsBorderColor;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__option {
+        width: 100%;
+        list-style: none;
+    }
+
+    &__input {
+        opacity: 0;
+        position: fixed;
+        width: 0;
+
+        &:checked {
+
+            & + label {
+                background-color: $sm-sliderSelectedColour;
+                color: $sm-secondaryFontColor;
+            }
+
+            & + #{$root}__slider {
+                background-color: $sm-sliderSelectedColour;
+                border-color: $sm-sliderSelectedColour;
+            }
+
+            & + #{$root}__slider:after {
+                background-color: $sm-sliderSelectedColour;
+                border-color: $sm-sliderSelectedColour;
+                -webkit-transform: translateX(25px);
+                -ms-transform: translateX(25px);
+                transform: translateX(25px);
+            }
+        }
+    }
+
+    &__label {
+        cursor: pointer;
+        display: block;
+        line-height: 30px;
+        padding: 0 10px;
+        text-align: center;
+        transition: .3s;
+
+        &:hover {
+            background-color: $sm-labelHoverColor;
+        }
+    }
+
+    &__toggle {
+        width: 3em;
+        height: 9px;
+        position: relative;
+    }
+
+    &__slider {
+        cursor: pointer;
+        position: absolute;
+        width: 42px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 1px solid $sm-sliderUnselectedColour;
+        -webkit-transition: .3s;
+        transition: .2s;
+        border-radius: 34px;
+
+        &:after {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            top: calc(-50% - 2px);
+            left: -1px;
+            background-color: $sm-sliderUnselectedColour;
+            border-radius: 50%;
+            -webkit-transition: .2s;
+            transition: .2s;
+        }
+    }
+
+    &__submit {
+        cursor: pointer;
+        width: 100%;
+        color: $sm-buttonFontColor;
+        background-color: $sm-buttonColor;
+        border: 1px solid $sm-buttonColor;
+        text-transform: uppercase;
+        margin: 20px 0;
+        padding: 10px 20px;
+        font-weight: bold;
+    }
+}
