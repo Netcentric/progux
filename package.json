@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com:Netcentric/progux.git"
+    "url": "https://github.com/Netcentric/progux"
   },
   "main": "dist/prod/bundle.js",
   "contributors": [
