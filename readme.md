@@ -60,7 +60,7 @@ cpuLevel: String        // 'low/mid/high/unknown'
 memoryLevel: String     // 'low/mid/high/unknown'
 reducedMotion: Boolean
 saveData: Boolean
-tracking: Boolean
+doNotTrack: Boolean
 ```
 
 
@@ -74,7 +74,7 @@ cpuLevel-[low/mid/high/unknown]
 memoryLevel-[low/mid/high/unknown]
 reducedMotion-[true/false]
 saveData-[true/false]
-tracking-[enabled/disabled]
+doNotTrack-[true/false]
 ```
 
 The output will look similar to this
