@@ -4,9 +4,7 @@
 
 # @netcentric/ProgUX
 
-Progressive User Experience Library (ProgUX) is designed to help developers make decisions on the end experience they deliver to the end users.
-
-Once added to a web application an object will be added to the session storage and classes added to the HTML tag that will indicate:
+The Progressive User Experience Library (ProgUX) lets you progressively enhance your website or PWA based on the following criteria:
 
 * Users Preferences
   * Prefers Reduced Motion
@@ -18,16 +16,17 @@ Once added to a web application an object will be added to the session storage a
   * CPU Capacity
   * Memory Level
 
-Each of these can be used to decide what features, content, JavaScript, CSS, etc. will be delivered to the user to create a progressive user experience.
+The libraray is using modern browser APIs to collect the data of the current session and creates a JavaScript object in the Session Storage and CSS classes in the <body>. Each of these can be used to decide what features, content, web fonts, JavaScript, CSS, etc. will be delivered to the user to create a progressive user experience.
+  
+![ProgUX logo](assets/progux.png "")
 
-Idea is similar to one provided in [react-adapitve-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks), however ProgUX is not limited to React, adds to CSS and provides a small simulator
-
+The idea is similar to [react-adapitve-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks).
+However ProgUX is not limited to React and provides a simulator which makes it easy to test different settings in the developer/test mode.
 
 
 ## Installation
 
-To start using ProgUX inline the code from `dist/prod/bundle.js` and call the progUX() to initialise the script.
-If you want to override any of the configurations pass it to the function as an object.
+To start using ProgUX inline the code from `dist/prod/bundle.js` before any other JavaScript and CSS code in the <head> and call the progUX() to initialise the script. If you want to override any of the configurations pass it to the function as an object.
 
 ```
 <script type="application/javascript">
@@ -39,11 +38,12 @@ If you want to override any of the configurations pass it to the function as an 
 </script>
 ```
 
+The web performance impact to run the production code is about ~10ms (measured on a local dev environment without throtteling).
 
 
 ## Usage
 
-How your application changes and adapts to the environmental constraints and capabilities is ultimately up to you.  ProgUX will not perform any magic that will change your application, it simply provides each developer who uses it a snapshot with which they can make decisions.
+How your application changes and adapts to the environmental constraints and capabilities is ultimately up to you. ProgUX will not perform any magic that will change your application, it simply provides each developer who uses it a snapshot with which they can make decisions.
 
 Ultimately how you use this is up-to-you, below we describe how you can gain access to this information.
 
@@ -100,9 +100,9 @@ You then have access to the classes to make decisions in your code, for example
 _To try to limit the impact of unnecessary JavaScript checks ProgUX will only update the `connectionSpeed` during a user session.  This is simply because we believe that this is the only one of our checks likely to change during a session._
 
 
-### Development/debugging Environment
+### Development/testing Environment
 
-To aid development we have provided a `dist/dev/dev-bundle.js` and `dist/dev/dev-bundle.css` files that contain extra features.
+To aid developers and testers we have provided a `dist/dev/dev-bundle.js` and `dist/dev/dev-bundle.css` files that contain extra features.
 
 Using this script will run the checks in exactly the same way as the production script but contains a modal that allows you to change the settings on the fly.
 
