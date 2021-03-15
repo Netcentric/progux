@@ -26,8 +26,6 @@
 
 The libraray is using modern browser APIs to collect the data of the current session and creates a JavaScript object in the Session Storage and CSS classes in the <body>. Each of these can be used to decide what features, content, web fonts, JavaScript, CSS, etc. will be delivered to the user to create a progressive user experience.
 
-![ProgUX logo](assets/progux.png)
-
 The idea is similar to [react-adapitve-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks).
 However ProgUX is not limited to React and provides a simulator which makes it easy to test different settings in the developer/test mode.
 
