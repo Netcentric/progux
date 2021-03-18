@@ -18,11 +18,11 @@
   - Prefers Reduced Motion
   - Save Data Settings
   - Tracking Settings
-- Network
-  - Connection Speed
 - Device Capabilities
   - CPU Capacity
   - Memory Level
+- Network
+  - Connection Speed
 
 The libraray is using modern browser APIs to collect the data of the current session and creates a JavaScript object in the Session Storage and CSS classes in the <body>. Each of these can be used to decide what features, content, web fonts, JavaScript, CSS, etc. will be delivered to the user to create a progressive user experience.
 
