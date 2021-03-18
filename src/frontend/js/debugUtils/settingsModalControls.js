@@ -83,6 +83,7 @@ function displaySettings(modalBase, devSettings, sessionStorageDevKey) {
 
 function closeSettings(modalBase, devSettings, sessionStorageDevKey) {
   modalBase.classList.remove(`${modalClasses.settingsModalBaseOpenClass}`);
+  modalBase.classList.remove(`${modalClasses.settingsModalBannerClass}`);
   modalBase.classList.add(`${modalClasses.settingsModalBaseClosedClass}`);
 
   const newSettings = { ...devSettings };
