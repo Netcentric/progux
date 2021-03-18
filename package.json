@@ -28,7 +28,7 @@
   ],
   "scripts": {
     "watch": "npm run watch-js-css | npm run watch-html",
-    "watch-js-css": "watch 'npm run build-js-css' src/frontend/js src/frontend/css",
+    "watch-js-css": "watch 'npm run build' src/frontend/js src/frontend/css",
     "watch-html": "watch 'npm run copy-html' src/frontend/html",
     "copy-html": "copyfiles -f src/frontend/html/*.html dist",
     "build": "rollup --config rollup.config.js",
