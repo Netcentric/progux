@@ -90,7 +90,7 @@ function buildModalFooter(config, devSettings) {
                 data-checked-value="${config.checkedValue}"
                 data-unchecked-value="${config.uncheckedValue}"
                 ${devSettings.mode === 'banner' ? 'checked' : ''}>
-                ${devSettings.mode === 'banner' ? config.simulator : config.banner}
+                <span>${devSettings.mode === 'banner' ? config.simulator : config.banner}</span>
       </label>
   </div>`;
 }

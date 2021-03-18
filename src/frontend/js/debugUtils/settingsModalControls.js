@@ -165,8 +165,8 @@ function handleSubmit(event) {
 }
 
 function updateViewLabel(isBannerView) {
-  const viewLabel = document.querySelector(`.${modalClasses.settingsModalToggleViewClass}`);
-  const newLabel = isBannerView ? footerConfig.banner : footerConfig.simulator;
+  const viewLabel = document.querySelector(`.${modalClasses.settingsModalToggleViewClass} span`);
+  const newLabel = isBannerView ? footerConfig.simulator : footerConfig.banner;
 
   viewLabel.textContent = newLabel;
 }
