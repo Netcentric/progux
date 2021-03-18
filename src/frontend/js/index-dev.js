@@ -28,7 +28,7 @@ import {
   runNonPersistentChecks,
   runAllChecks,
   findStorageValues,
-} from './utils/utils';
+} from '../utils/utils/utils';
 import buildModal from './debugUtils/settingsModal';
 import { initModalControls } from './debugUtils/settingsModalControls';
 import { devConfig } from './config';
