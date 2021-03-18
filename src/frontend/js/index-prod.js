@@ -25,7 +25,7 @@ import {
   runNonPersistentChecks,
   runAllChecks,
   findStorageValues,
-} from '../utils/utilities/utils';
+} from './debugUtils/utils/utils';
 import { defaultConfig } from './config';
 
 const progUX = (params) => {
