@@ -321,6 +321,7 @@
         background-color: $sm-buttonColor;
         border: 1px solid $sm-buttonColor;
         font-size: 20px;
+        font-weight: bold;
         text-transform: capitalize;
         margin: 20px calc(50% - 70px);
         padding: 10px;
@@ -342,9 +343,10 @@
         }
     }
 
-    &__footerText {
+    &__footerLink {
         display: inline-block;
         color: $sm-thirdFontColor;
         line-height: 20px;
+        text-decoration: none;
     }
 }

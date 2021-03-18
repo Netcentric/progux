@@ -7,7 +7,7 @@ const modalClasses = {
   settingsModalHeaderClass: `${baseModalClass}__header`,
   settingsModalLogoClass: `${baseModalClass}__logo`,
   settingsModalFooterClass: `${baseModalClass}__footer`,
-  settingsModalFooterText: `${baseModalClass}__footerText`,
+  settingsModalFooterLink: `${baseModalClass}__footerLink`,
   settingsModalTitleClass: `${baseModalClass}__title`,
   settingsModalFormClass: `${baseModalClass}__form`,
   settingsModalSubmitClass: `${baseModalClass}__submit`,
@@ -185,7 +185,8 @@ const toggles = {
 };
 
 const footerConfig = {
-  website: 'www.progux.org',
+  websiteLabel: 'www.progux.org',
+  websiteUrl: 'http://progux.org/',
   banner: 'Banner view',
   simulator: 'Simulator view',
   id: 'view',

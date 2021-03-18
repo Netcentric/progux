@@ -78,7 +78,7 @@ function buildSubmitButton() {
 
 function buildModalFooter(config, devSettings) {
   return `<div class="${modalClasses.settingsModalFooterClass} ${modalClasses.settingsModalControllerToggleClass} ${modalClasses.settingsModalControllerViewClass}">
-      <p class="${modalClasses.settingsModalFooterText}">${config.website}</p>
+      <a class="${modalClasses.settingsModalFooterLink}" href="${config.websiteUrl}" target="_blank">${config.websiteLabel}</a>
       <label class="${modalClasses.settingsModalToggleClass} ${modalClasses.settingsModalToggleViewClass}">
         <input type="checkbox" 
                 id="${config.id}" 
