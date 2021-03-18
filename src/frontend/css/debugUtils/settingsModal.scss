@@ -105,6 +105,13 @@
         margin: 0;
     }
 
+    &__logo {
+        svg {
+            height: 40px;
+            width: 40px;
+        }
+    }
+
     &__form {
         font-size: 14px;
         padding: 10px 20px;

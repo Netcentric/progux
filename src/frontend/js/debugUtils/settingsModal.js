@@ -29,10 +29,10 @@ import {
   footerConfig,
   modalClasses,
   modalFormIds,
-  modalLogoConfig,
-  modalSettingsIconConfig,
 } from './settingsModal.config';
 import closeIcon from './icons/closeIcon';
+import cogIcon from './icons/cogIcon';
+import progUxIcon from './icons/progUxIcon';
 
 function buildModalBaseOpen(devSettings) {
   const {
@@ -55,13 +55,15 @@ function buildModalBaseOpen(devSettings) {
 
 function buildModalHeader() {
   return `<div class="${modalClasses.settingsModalHeaderClass}">
-    <img class="${modalClasses.settingsModalLogoClass}" src="${modalLogoConfig.src}" alt="${modalLogoConfig.alt}" title="${modalLogoConfig.title}" width="40" height="40">
+    <span class="${modalClasses.settingsModalLogoClass}">
+      ${progUxIcon}
+    </span>
     <p class="${modalClasses.settingsModalTitleClass}">Simulator</p>
     <span class="${modalClasses.settingsModalOverlayIconClass} ${modalClasses.settingsModalOverlayCloseIconClass}">
       ${closeIcon}
     </span>
     <span class="${modalClasses.settingsModalOverlayIconClass} ${modalClasses.settingsModalOverlayOpenIconClass}">
-      <img src="${modalSettingsIconConfig.src}" alt="${modalSettingsIconConfig.alt}" title="${modalSettingsIconConfig.title}" width="30" height="30">
+      ${cogIcon} 
     </span>
   </div>`;
 }

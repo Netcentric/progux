@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Combined Shape</title>
+const cogIcon = `<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="71.2561845%" gradientTransform="translate(0.500000,0.500000),scale(1.000000,0.992190),translate(-0.500000,-0.500000)" id="radialGradient-1">
             <stop stop-color="#E84B1E" offset="0%"></stop>
@@ -14,4 +12,6 @@
             </g>
         </g>
     </g>
-</svg>
+</svg>`;
+
+export default cogIcon;
