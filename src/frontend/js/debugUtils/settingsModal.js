@@ -26,12 +26,12 @@ import {
   saveDataConfig,
   reducedMotionConfig,
   trackingConfig,
-  viewSwitchConfig,
+  footerConfig,
   modalClasses,
   modalFormIds,
   modalLogoConfig,
+  modalSettingsIconConfig,
 } from './settingsModal.config';
-import settingsIcon from './icons/settingsIcon';
 import closeIcon from './icons/closeIcon';
 
 function buildModalBaseOpen(devSettings) {
@@ -55,14 +55,12 @@ function buildModalBaseOpen(devSettings) {
 
 function buildModalHeader() {
   return `<div class="${modalClasses.settingsModalHeaderClass}">
-    <img src="${modalLogoConfig.src}" alt="${modalLogoConfig.alt}" title="${modalLogoConfig.title}" width="40" height="40">
+    <img class="${modalClasses.settingsModalLogoClass}" src="${modalLogoConfig.src}" alt="${modalLogoConfig.alt}" title="${modalLogoConfig.title}" width="40" height="40">
     <p class="${modalClasses.settingsModalTitleClass}">Simulator</p>
     <span class="${modalClasses.settingsModalOverlayIconClass} ${modalClasses.settingsModalOverlayCloseIconClass}">
       ${closeIcon}
     </span>
-    <span class="${modalClasses.settingsModalOverlayIconClass} ${modalClasses.settingsModalOverlayOpenIconClass}">
-      ${settingsIcon}
-    </span>
+    <img class="${modalClasses.settingsModalOverlayIconClass} ${modalClasses.settingsModalOverlayOpenIconClass}" src="${modalSettingsIconConfig.src}" alt="${modalSettingsIconConfig.alt}" title="${modalSettingsIconConfig.title}" width="60" height="60">
   </div>`;
 }
 
@@ -78,10 +76,10 @@ function buildSubmitButton() {
   return `<button type="submit" class="${modalClasses.settingsModalSubmitClass}" id="${modalFormIds.settingsModalSubmitId}" value="Submit">Update</button>`;
 }
 
-function buildViewSwitch(config, devSettings) {
-  return `<div class="${modalClasses.settingsModalControllerClass} ${modalClasses.settingsModalControllerToggleClass} ${modalClasses.settingsModalControllerViewClass}">
-      <p class="${modalClasses.settingsModalParameterClass}">${config.title}</p>
-      <label class="${modalClasses.settingsModalToggleClass}">
+function buildModalFooter(config, devSettings) {
+  return `<div class="${modalClasses.settingsModalFooterClass} ${modalClasses.settingsModalControllerToggleClass} ${modalClasses.settingsModalControllerViewClass}">
+      <p class="${modalClasses.settingsModalFooterText}">${config.website}</p>
+      <label class="${modalClasses.settingsModalToggleClass} ${modalClasses.settingsModalToggleViewClass}">
         <input type="checkbox" 
                 id="${config.id}" 
                 class="${modalClasses.settingsModalInputClass}"
@@ -90,7 +88,7 @@ function buildViewSwitch(config, devSettings) {
                 data-checked-value="${config.checkedValue}"
                 data-unchecked-value="${config.uncheckedValue}"
                 ${devSettings.mode === 'banner' ? 'checked' : ''}>
-        <span class="${modalClasses.settingsModalSliderClass}"></span>
+                ${devSettings.mode === 'banner' ? config.simulator : config.banner}
       </label>
   </div>`;
 }
@@ -155,7 +153,7 @@ const buildModal = (devSettings) => {
   const saveDataController = buildToggleController(saveDataConfig);
   const reducedMotionController = buildToggleController(reducedMotionConfig);
   const trackingController = buildToggleController(trackingConfig);
-  const viewController = buildViewSwitch(viewSwitchConfig, devSettings);
+  const viewController = buildModalFooter(footerConfig, devSettings);
 
   return `${modalBaseStart}
     ${modalHeader}

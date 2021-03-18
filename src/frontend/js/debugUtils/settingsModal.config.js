@@ -5,6 +5,9 @@ const modalClasses = {
   settingsModalBaseClosedClass: `${baseModalClass}--closed`,
   settingsModalBannerClass: `${baseModalClass}--banner`,
   settingsModalHeaderClass: `${baseModalClass}__header`,
+  settingsModalLogoClass: `${baseModalClass}__logo`,
+  settingsModalFooterClass: `${baseModalClass}__footer`,
+  settingsModalFooterText: `${baseModalClass}__footerText`,
   settingsModalTitleClass: `${baseModalClass}__title`,
   settingsModalFormClass: `${baseModalClass}__form`,
   settingsModalSubmitClass: `${baseModalClass}__submit`,
@@ -20,6 +23,7 @@ const modalClasses = {
   settingsModalInputClass: `${baseModalClass}__input`,
   settingsModalLabelClass: `${baseModalClass}__label`,
   settingsModalToggleClass: `${baseModalClass}__toggle`,
+  settingsModalToggleViewClass: `${baseModalClass}__toggle--view`,
   settingsModalSliderClass: `${baseModalClass}__slider`,
   settingsModalOverlayClass: `${baseModalClass}__overlay`,
   settingsModalOverlayOpenClass: `${baseModalClass}__overlay--open`,
@@ -33,6 +37,12 @@ const modalLogoConfig = {
   src: 'assets/Symbol_ProgUX.svg',
   alt: 'ProgUX logo symbol',
   title: 'ProgUX logo symbol',
+};
+
+const modalSettingsIconConfig = {
+  src: 'assets/Modal_Icon.svg',
+  alt: 'Cog icon',
+  title: 'Cog icon',
 };
 
 const modalFormIds = {
@@ -174,8 +184,10 @@ const toggles = {
   doNotTrack: trackingConfig,
 };
 
-const viewSwitchConfig = {
-  title: 'Banner view',
+const footerConfig = {
+  website: 'www.progux.org',
+  banner: 'Banner view',
+  simulator: 'Simulator view',
   id: 'view',
   name: 'view',
   value: 'disabled',
@@ -192,9 +204,10 @@ export {
   trackingConfig,
   selects,
   toggles,
-  viewSwitchConfig,
+  footerConfig,
   baseModalClass,
   modalClasses,
   modalFormIds,
   modalLogoConfig,
+  modalSettingsIconConfig,
 };

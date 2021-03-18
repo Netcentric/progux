@@ -15,7 +15,6 @@
 
     &--open {
         background-color: $sm-backgroundColor;
-        color: $sm-primaryFontColor;
         box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
 
         #{$root}__openIcon {
@@ -25,6 +24,7 @@
 
     &--closed {
 
+        #{$root}__logo,
         #{$root}__title,
         #{$root}__closeIcon,
         #{$root}__form,
@@ -36,9 +36,12 @@
 
     &--banner {
         display: flex;
+        align-items: center;
+        height: 120px;
+        border-radius: 80px;
 
-        #{$root}__header,
-        #{$root}__submit {
+        #{$root}__submit,
+        #{$root}__footerText {
             display: none;
         }
 
@@ -53,33 +56,47 @@
         display: flex;
         align-items: center;
 
-        #{$root}--closed & {
-            border-radius: 50%;
-            padding: 10px;
-            box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+        #{$root}--banner & {
+            height: 60%;
+            border-right: 1px solid $sm-thirdFontColor;
         }
     }
 
     &__title {
-        opacity: .4;
+        color: $sm-thirdFontColor;
         line-height: 36px;
         margin-left: 10px;
+
+        #{$root}--banner & {
+            display: none;
+        }
     }
 
-    &__icon {
+    &__openIcon {
+        border-radius: 50%;
+        box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+
+        #{$root}--banner & {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    &__closeIcon {
         fill: $sm-primaryFontColor;
         position: absolute;
         right: 25px;
+
+        #{$root}--banner & {
+            top: 25px;
+            right: 44px;
+        }
     }
 
     &__closeIcon,
     &__openIcon {
         cursor: pointer;
-    }
-
-    &__openIcon {
-        height: 24px;
-        width: 24px;
+        margin: 0;
     }
 
     &__form {
@@ -88,9 +105,8 @@
 
         #{$root}--banner & {
             display: flex;
-            background-color: $sm-backgroundColor;
-            color: $sm-backgroundColor;
             margin-bottom: 0;
+            padding: 10px;
         }
     }
 
@@ -98,7 +114,7 @@
         display: flex;
 
         #{$root}--banner & {
-            margin: 0 10px 0 0;
+            margin: 0 20px 0 0;
             border-right: 1px solid $sm-backgroundColor;
         }
 
@@ -114,6 +130,12 @@
             align-items: flex-start;
             justify-content: flex-start;
             margin: 0 0 20px;
+
+            #{$root}--banner & {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
         }
 
         &--toggle {
@@ -124,8 +146,8 @@
 
             #{$root}--banner & {
                 flex-direction: column;
-                align-items: start;
-                justify-content: start;
+                align-items: center;
+                justify-content: center;
             }
         }
 
@@ -153,6 +175,7 @@
 
         #{$root}--banner & {
             line-height: 18px;
+            text-align: center;
         }
     }
 
@@ -160,7 +183,12 @@
         display: none;
 
         #{$root}--banner & {
-            display: inline-block;
+            display: block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background-color: $sm-sliderSelectedColour;
+            color: $sm-secondaryFontColor;
+            margin: 0 auto;
         }
     }
 
@@ -204,6 +232,10 @@
             & + label {
                 background-color: $sm-sliderSelectedColour;
                 color: $sm-secondaryFontColor;
+
+                &:hover {
+                    background-color: $sm-secondaryHighlightColorHover;
+                }
             }
 
             & + #{$root}__slider {
@@ -229,11 +261,13 @@
         text-align: center;
         transition: .3s;
         border-radius: 20px;
+        box-sizing: border-box;
         box-shadow: 0 1px 10px 0 rgba(194, 194, 194, 0.5);
         color: $sm-secondaryHighlightColor;
+        border: 1px solid transparent;
 
         &:hover {
-            border: 1px solid $sm-secondaryHighlightColor;
+            border-color: $sm-secondaryHighlightColor;
         }
     }
 
@@ -241,6 +275,15 @@
         width: 3em;
         height: 9px;
         position: relative;
+
+        &--view {
+            cursor: pointer;
+            width: auto;
+            height: 20px;
+            line-height: 20px;
+            color: $sm-secondaryHighlightColor;
+            text-decoration: underline;
+        }
     }
 
     &__slider {
@@ -282,25 +325,26 @@
         margin: 20px calc(50% - 70px);
         padding: 10px;
         border-radius: 30px;
+
+        &:hover {
+            background-color: $sm-primaryHighlightColorHover;
+        }
     }
 
     &__footer {
-        position: relative;
+        display: flex;
+        justify-content: space-between;
+
+        #{$root}--banner & {
+            height: 60%;
+            padding: 0 20px;
+            border-left: 1px solid $sm-thirdFontColor;
+        }
     }
 
-    &__viewText {
-        color: $sm-secondaryHighlightColor;
-        text-decoration: underline;
-    }
-
-    &__viewToggle {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    &__viewInput {
-        display: block;
-        width: 100%;
+    &__footerText {
+        display: inline-block;
+        color: $sm-thirdFontColor;
+        line-height: 20px;
     }
 }
