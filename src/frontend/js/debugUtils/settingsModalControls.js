@@ -26,7 +26,7 @@ import {
   modalFormIds,
 } from './settingsModal.config';
 import { onDragStart, onDragEnd, onDragOver } from './settingsModalDrag';
-import { writeValuesToStorage } from '../utils/utils';
+import { writeValuesToStorage } from '../../utils/utilities/utils';
 
 function configureRadioButtonSettings(inputSelector, currentValue) {
   const settingsModalForm = document.querySelector(`.${modalClasses.settingsModalFormClass}`);
