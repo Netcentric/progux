@@ -26,11 +26,12 @@ import {
   saveDataConfig,
   reducedMotionConfig,
   trackingConfig,
-  viewSwitchConfig,
+  footerConfig,
   modalClasses,
   modalFormIds,
+  modalLogoConfig,
+  modalSettingsIconConfig,
 } from './settingsModal.config';
-import settingsIcon from './icons/settingsIcon';
 import closeIcon from './icons/closeIcon';
 
 function buildModalBaseOpen(devSettings) {
@@ -40,7 +41,7 @@ function buildModalBaseOpen(devSettings) {
     posLeft,
     isDraggable,
   } = devSettings;
-  const style = `top: ${posTop}px; left: ${posLeft}px;`
+  const style = `top: ${posTop}px; left: ${posLeft}px;`;
   let modeClass = mode === 'closed' ? `${modalClasses.settingsModalBaseClass}--closed` : `${modalClasses.settingsModalBaseClass}--open`;
   if (mode === 'banner') {
     modeClass += ` ${modalClasses.settingsModalBaseClass}--banner`;
@@ -54,12 +55,13 @@ function buildModalBaseOpen(devSettings) {
 
 function buildModalHeader() {
   return `<div class="${modalClasses.settingsModalHeaderClass}">
-    <p class="${modalClasses.settingsModalTitleClass}">Settings</p>
+    <img class="${modalClasses.settingsModalLogoClass}" src="${modalLogoConfig.src}" alt="${modalLogoConfig.alt}" title="${modalLogoConfig.title}" width="40" height="40">
+    <p class="${modalClasses.settingsModalTitleClass}">Simulator</p>
     <span class="${modalClasses.settingsModalOverlayIconClass} ${modalClasses.settingsModalOverlayCloseIconClass}">
       ${closeIcon}
     </span>
     <span class="${modalClasses.settingsModalOverlayIconClass} ${modalClasses.settingsModalOverlayOpenIconClass}">
-      ${settingsIcon}
+      <img src="${modalSettingsIconConfig.src}" alt="${modalSettingsIconConfig.alt}" title="${modalSettingsIconConfig.title}" width="30" height="30">
     </span>
   </div>`;
 }
@@ -73,13 +75,13 @@ function buildFormStart() {
 }
 
 function buildSubmitButton() {
-  return `<button type="submit" class="${modalClasses.settingsModalSubmitClass}" id="${modalFormIds.settingsModalSubmitId}" value="Submit">Submit</button>`;
+  return `<button type="submit" class="${modalClasses.settingsModalSubmitClass}" id="${modalFormIds.settingsModalSubmitId}" value="Submit">Update</button>`;
 }
 
-function buildViewSwitch(config, devSettings) {
-  return `<div class="${modalClasses.settingsModalControllerClass} ${modalClasses.settingsModalControllerToggleClass} ${modalClasses.settingsModalControllerViewClass}">
-      <p class="${modalClasses.settingsModalParameterClass}">${config.title}</p>
-      <label class="${modalClasses.settingsModalToggleClass}">
+function buildModalFooter(config, devSettings) {
+  return `<div class="${modalClasses.settingsModalFooterClass} ${modalClasses.settingsModalControllerToggleClass} ${modalClasses.settingsModalControllerViewClass}">
+      <a class="${modalClasses.settingsModalFooterLink}" href="${config.websiteUrl}" target="_blank">${config.websiteLabel}</a>
+      <label class="${modalClasses.settingsModalToggleClass} ${modalClasses.settingsModalToggleViewClass}">
         <input type="checkbox" 
                 id="${config.id}" 
                 class="${modalClasses.settingsModalInputClass}"
@@ -88,7 +90,7 @@ function buildViewSwitch(config, devSettings) {
                 data-checked-value="${config.checkedValue}"
                 data-unchecked-value="${config.uncheckedValue}"
                 ${devSettings.mode === 'banner' ? 'checked' : ''}>
-        <span class="${modalClasses.settingsModalSliderClass}"></span>
+                <span>${devSettings.mode === 'banner' ? config.simulator : config.banner}</span>
       </label>
   </div>`;
 }
@@ -153,7 +155,7 @@ const buildModal = (devSettings) => {
   const saveDataController = buildToggleController(saveDataConfig);
   const reducedMotionController = buildToggleController(reducedMotionConfig);
   const trackingController = buildToggleController(trackingConfig);
-  const viewController = buildViewSwitch(viewSwitchConfig, devSettings);
+  const viewController = buildModalFooter(footerConfig, devSettings);
 
   return `${modalBaseStart}
     ${modalHeader}

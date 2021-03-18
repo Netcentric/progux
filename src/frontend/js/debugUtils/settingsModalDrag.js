@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /**
  * Copyright (c) 2021 Netcentric, a Cognizant Digital Business
  *

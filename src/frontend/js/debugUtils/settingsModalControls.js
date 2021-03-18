@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /**
  * Copyright (c) 2021 Netcentric, a Cognizant Digital Business
  *
@@ -24,6 +25,7 @@ import {
   toggles,
   modalClasses,
   modalFormIds,
+  footerConfig,
 } from './settingsModal.config';
 import { onDragStart, onDragEnd, onDragOver } from './settingsModalDrag';
 import { writeValuesToStorage } from './utils/utils';
@@ -83,6 +85,7 @@ function displaySettings(modalBase, devSettings, sessionStorageDevKey) {
 
 function closeSettings(modalBase, devSettings, sessionStorageDevKey) {
   modalBase.classList.remove(`${modalClasses.settingsModalBaseOpenClass}`);
+  modalBase.classList.remove(`${modalClasses.settingsModalBannerClass}`);
   modalBase.classList.add(`${modalClasses.settingsModalBaseClosedClass}`);
 
   const newSettings = { ...devSettings };
@@ -161,6 +164,13 @@ function handleSubmit(event) {
   reloadPage(queryString);
 }
 
+function updateViewLabel(isBannerView) {
+  const viewLabel = document.querySelector(`.${modalClasses.settingsModalToggleViewClass} span`);
+  const newLabel = isBannerView ? footerConfig.simulator : footerConfig.banner;
+
+  viewLabel.textContent = newLabel;
+}
+
 function changeView(event, modalBase, devSettings, sessionStorageDevKey) {
   event.stopPropagation();
   event.preventDefault();
@@ -175,12 +185,14 @@ function changeView(event, modalBase, devSettings, sessionStorageDevKey) {
     const newSettings = { ...devSettings };
     newSettings.mode = 'banner';
     writeValuesToStorage(newSettings, sessionStorageDevKey);
+    updateViewLabel(true);
     return;
   }
   modalBase.classList.remove(`${modalClasses.settingsModalBannerClass}`);
   const newSettings = { ...devSettings };
   newSettings.mode = 'open';
   writeValuesToStorage(newSettings, sessionStorageDevKey);
+  updateViewLabel(false);
 }
 
 function addFormEventListeners() {
