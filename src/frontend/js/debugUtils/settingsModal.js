@@ -60,7 +60,9 @@ function buildModalHeader() {
     <span class="${modalClasses.settingsModalOverlayIconClass} ${modalClasses.settingsModalOverlayCloseIconClass}">
       ${closeIcon}
     </span>
-    <img class="${modalClasses.settingsModalOverlayIconClass} ${modalClasses.settingsModalOverlayOpenIconClass}" src="${modalSettingsIconConfig.src}" alt="${modalSettingsIconConfig.alt}" title="${modalSettingsIconConfig.title}" width="50" height="50">
+    <span class="${modalClasses.settingsModalOverlayIconClass} ${modalClasses.settingsModalOverlayOpenIconClass}">
+      <img src="${modalSettingsIconConfig.src}" alt="${modalSettingsIconConfig.alt}" title="${modalSettingsIconConfig.title}" width="30" height="30">
+    </span>
   </div>`;
 }
 

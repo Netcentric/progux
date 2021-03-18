@@ -73,7 +73,13 @@
     }
 
     &__openIcon {
-        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        background-color: $sm-secondaryHighlightColorHover;
         box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
 
         #{$root}--banner & {
@@ -114,7 +120,7 @@
         display: flex;
 
         #{$root}--banner & {
-            margin: 0 20px 0 0;
+            margin: 0 10px;
             border-right: 1px solid $sm-backgroundColor;
         }
 
@@ -176,6 +182,7 @@
         #{$root}--banner & {
             line-height: 18px;
             text-align: center;
+            margin-top: 0;
         }
     }
 
@@ -283,6 +290,11 @@
             line-height: 20px;
             color: $sm-secondaryHighlightColor;
             text-decoration: underline;
+
+            #{$root}--banner & {
+                height: auto;
+                margin-top: 30px;
+            }
         }
     }
 
