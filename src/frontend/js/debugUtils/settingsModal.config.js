@@ -29,6 +29,12 @@ const modalClasses = {
   settingsModalOverlayOpenIconClass: `${baseModalClass}__openIcon`,
 };
 
+const modalLogoConfig = {
+  src: 'assets/Symbol_ProgUX.svg',
+  alt: 'ProgUX logo symbol',
+  title: 'ProgUX logo symbol',
+};
+
 const modalFormIds = {
   settingsModalSubmitId: `${baseModalClass}Submit`,
   settingsModalFormId: `${baseModalClass}Form`,
@@ -190,4 +196,5 @@ export {
   baseModalClass,
   modalClasses,
   modalFormIds,
+  modalLogoConfig,
 };

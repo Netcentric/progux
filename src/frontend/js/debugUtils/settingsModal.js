@@ -29,6 +29,7 @@ import {
   viewSwitchConfig,
   modalClasses,
   modalFormIds,
+  modalLogoConfig,
 } from './settingsModal.config';
 import settingsIcon from './icons/settingsIcon';
 import closeIcon from './icons/closeIcon';
@@ -40,7 +41,7 @@ function buildModalBaseOpen(devSettings) {
     posLeft,
     isDraggable,
   } = devSettings;
-  const style = `top: ${posTop}px; left: ${posLeft}px;`
+  const style = `top: ${posTop}px; left: ${posLeft}px;`;
   let modeClass = mode === 'closed' ? `${modalClasses.settingsModalBaseClass}--closed` : `${modalClasses.settingsModalBaseClass}--open`;
   if (mode === 'banner') {
     modeClass += ` ${modalClasses.settingsModalBaseClass}--banner`;
@@ -54,7 +55,8 @@ function buildModalBaseOpen(devSettings) {
 
 function buildModalHeader() {
   return `<div class="${modalClasses.settingsModalHeaderClass}">
-    <p class="${modalClasses.settingsModalTitleClass}">Settings</p>
+    <img src="${modalLogoConfig.src}" alt="${modalLogoConfig.alt}" title="${modalLogoConfig.title}" width="40" height="40">
+    <p class="${modalClasses.settingsModalTitleClass}">Simulator</p>
     <span class="${modalClasses.settingsModalOverlayIconClass} ${modalClasses.settingsModalOverlayCloseIconClass}">
       ${closeIcon}
     </span>
@@ -73,7 +75,7 @@ function buildFormStart() {
 }
 
 function buildSubmitButton() {
-  return `<button type="submit" class="${modalClasses.settingsModalSubmitClass}" id="${modalFormIds.settingsModalSubmitId}" value="Submit">Submit</button>`;
+  return `<button type="submit" class="${modalClasses.settingsModalSubmitClass}" id="${modalFormIds.settingsModalSubmitId}" value="Submit">Update</button>`;
 }
 
 function buildViewSwitch(config, devSettings) {

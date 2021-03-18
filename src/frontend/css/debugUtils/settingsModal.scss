@@ -7,6 +7,7 @@
     position: absolute;
     z-index: 10;
     font-family: Arial, sans-serif;
+    border-radius: 35px;
 
     &[draggable="true"] {
         cursor: move;
@@ -47,16 +48,10 @@
     }
 
     &__header {
-        background-color: $sm-highlightColor;
-        color: $sm-secondaryFontColor;
-        font-size: 18px;
-        font-weight: bold;
-        text-transform: uppercase;
-        line-height: 36px;
-        padding: 5px 20px;
+        color: $sm-primaryFontColor;
+        padding: 10px 20px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
 
         #{$root}--closed & {
             border-radius: 50%;
@@ -65,18 +60,21 @@
         }
     }
 
+    &__title {
+        opacity: .4;
+        line-height: 36px;
+        margin-left: 10px;
+    }
+
     &__icon {
-        fill: $sm-iconColor;
+        fill: $sm-primaryFontColor;
+        position: absolute;
+        right: 25px;
     }
 
     &__closeIcon,
     &__openIcon {
         cursor: pointer;
-    }
-
-    &__closeIcon {
-        margin-right: -3px;
-        margin-top: 6px;
     }
 
     &__openIcon {
@@ -90,7 +88,7 @@
 
         #{$root}--banner & {
             display: flex;
-            background-color: $sm-highlightColor;
+            background-color: $sm-backgroundColor;
             color: $sm-backgroundColor;
             margin-bottom: 0;
         }
@@ -150,8 +148,8 @@
     }
 
     &__parameter {
-        text-transform: uppercase;
-        font-weight: bold;
+        font-size: 16px;
+        text-transform: capitalize;
 
         #{$root}--banner & {
             line-height: 18px;
@@ -178,7 +176,6 @@
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        border: 1px solid $sm-optionsBorderColor;
         padding: 0;
         margin: 0;
     }
@@ -186,6 +183,15 @@
     &__option {
         width: 100%;
         list-style: none;
+        margin: 0 5px;
+
+        &:first-of-type {
+            margin-left: 0;
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+        }
     }
 
     &__input {
@@ -206,11 +212,11 @@
             }
 
             & + #{$root}__slider:after {
-                background-color: $sm-sliderSelectedColour;
-                border-color: $sm-sliderSelectedColour;
-                -webkit-transform: translateX(25px);
-                -ms-transform: translateX(25px);
-                transform: translateX(25px);
+                background-color: $sm-secondaryFontColor;
+                border-color: $sm-secondaryFontColor;
+                -webkit-transform: translateX(16px);
+                -ms-transform: translateX(16px);
+                transform: translateX(16px);
             }
         }
     }
@@ -219,12 +225,15 @@
         cursor: pointer;
         display: block;
         line-height: 30px;
-        padding: 0 10px;
+        padding: 1px 10px;
         text-align: center;
         transition: .3s;
+        border-radius: 20px;
+        box-shadow: 0 1px 10px 0 rgba(194, 194, 194, 0.5);
+        color: $sm-secondaryHighlightColor;
 
         &:hover {
-            background-color: $sm-labelHoverColor;
+            border: 1px solid $sm-secondaryHighlightColor;
         }
     }
 
@@ -237,8 +246,9 @@
     &__slider {
         cursor: pointer;
         position: absolute;
-        width: 42px;
-        top: 0;
+        width: 34px;
+        height: 18px;
+        top: calc(-50% - 2px);
         left: 0;
         right: 0;
         bottom: 0;
@@ -250,10 +260,10 @@
         &:after {
             position: absolute;
             content: "";
-            height: 18px;
-            width: 18px;
-            top: calc(-50% - 2px);
-            left: -1px;
+            height: 14px;
+            width: 14px;
+            top: 2px;
+            left: 2px;
             background-color: $sm-sliderUnselectedColour;
             border-radius: 50%;
             -webkit-transition: .2s;
@@ -263,13 +273,34 @@
 
     &__submit {
         cursor: pointer;
-        width: 100%;
+        width: 140px;
         color: $sm-buttonFontColor;
         background-color: $sm-buttonColor;
         border: 1px solid $sm-buttonColor;
-        text-transform: uppercase;
-        margin: 20px 0;
-        padding: 10px 20px;
-        font-weight: bold;
+        font-size: 20px;
+        text-transform: capitalize;
+        margin: 20px calc(50% - 70px);
+        padding: 10px;
+        border-radius: 30px;
+    }
+
+    &__footer {
+        position: relative;
+    }
+
+    &__viewText {
+        color: $sm-secondaryHighlightColor;
+        text-decoration: underline;
+    }
+
+    &__viewToggle {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__viewInput {
+        display: block;
+        width: 100%;
     }
 }
