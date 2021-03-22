@@ -20,7 +20,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { writeValuesToStorage } from './utils/utils';
+import { writeValuesToStorage } from '../utils/utils';
 
 let cursorOffsetX;
 let cursorOffsetY;

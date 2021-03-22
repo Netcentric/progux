@@ -28,7 +28,7 @@ import {
   footerConfig,
 } from './settingsModal.config';
 import { onDragStart, onDragEnd, onDragOver } from './settingsModalDrag';
-import { writeValuesToStorage } from './utils/utils';
+import { writeValuesToStorage } from '../utils/utils';
 
 function configureRadioButtonSettings(inputSelector, currentValue) {
   const settingsModalForm = document.querySelector(`.${modalClasses.settingsModalFormClass}`);
