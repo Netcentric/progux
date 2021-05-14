@@ -176,6 +176,27 @@ Unfortunately, not all modern browsers support all the APIs, so please check sup
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+### Run project locally
+
+To test project locally, there are 2 basic html files with integration of both production and development versions of ProgUX.
+To start local server run
+```
+npm run start
+``` 
+for production mode or
+```
+npm run start-dev
+``` 
+for development mode.
+
+If you want to do some development, there are also watchers included.
+To run them open a new tab next to one where server is running and run:
+```
+npm run watch
+``` 
+
+For any questions and issues feel free to contact us.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
