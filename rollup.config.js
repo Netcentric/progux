@@ -1,9 +1,9 @@
-import { terser } from "rollup-plugin-terser";
-import scss from "rollup-plugin-scss";
+import { terser } from 'rollup-plugin-terser';
+import sass from '@astappiev/rollup-plugin-scss';
 
 export default [
   {
-    input: "src/frontend/js/index-prod.js",
+    input: 'src/frontend/js/index-prod.js',
     plugins: [
       terser({
         toplevel: true,
@@ -26,12 +26,12 @@ export default [
       }),
     ],
     output: {
-      file: "dist/prod/bundle.js",
-      format: "iife",
+      file: 'dist/prod/bundle.js',
+      format: 'iife',
     },
   },
   {
-    input: "src/frontend/js/index-dev.js",
+    input: 'src/frontend/js/index-dev.js',
     plugins: [
       terser({
         toplevel: true,
@@ -52,15 +52,15 @@ export default [
           ecma: 5,
         },
       }),
-      scss({
-        output: "dist/dev/dev-bundle.css",
-        outputStyle: "compressed",
-        watch: ["src/frontend/css/debugUtils"],
+      sass({
+        output: 'dist/dev/dev-bundle.css',
+        outputStyle: 'compressed',
+        watch: ['src/frontend/css/debugUtils'],
       }),
     ],
     output: {
-      file: "dist/dev/dev-bundle.js",
-      format: "iife",
+      file: 'dist/dev/dev-bundle.js',
+      format: 'iife',
     },
   },
 ];
