@@ -27,7 +27,6 @@
     }
   ],
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "watch": "npm run watch-js-css | npm run watch-html",
     "watch-js-css": "chokidar 'src/frontend/js' 'src/frontend/css' -c 'npm run build'",
     "watch-html": "chokidar 'src/frontend/html' -c 'npm run copy-html'",
@@ -40,21 +39,18 @@
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
+    "@astappiev/rollup-plugin-scss": "^3.0.6",
     "chalk": "^4.1.1",
     "chokidar-cli": "^2.1.0",
     "copyfiles": "2.3.0",
     "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
-    "local-web-server": "4.2.1",
-    "npm-force-resolutions": "0.0.10",
-    "rollup": "2.26.11",
-    "rollup-plugin-scss": "2.6.1",
+    "local-web-server": "^4.2.1",
+    "rollup": "^2.26.11",
     "rollup-plugin-terser": "7.0.2",
-    "semantic-release": "^17.4.3"
-  },
-  "resolutions": {
-    "trim-newlines": "^4.0.1"
+    "sass": "^1.35.1",
+    "semantic-release": "^17.4.4"
   },
   "keywords": [
     "performance",
